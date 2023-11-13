@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/prefer-module */
 import chalk from "chalk";
-import { extractSchemas } from "extract-pg-schema";
+import { extractSchemas } from "extract-mysql-schema";
 import path from "path";
 import { indexBy, keys, prop, values } from "ramda";
 
@@ -17,19 +17,19 @@ const suggestedMigrations = [];
 
 const createReportFunction =
   (reporter, ignoreMatchers) =>
-  ({ rule, identifier, message, suggestedMigration }) => {
-    if (ignoreMatchers.some((im) => im(rule, identifier))) {
-      // This one is ignored.
-      return;
-    }
+    ({ rule, identifier, message, suggestedMigration }) => {
+      if (ignoreMatchers.some((im) => im(rule, identifier))) {
+        // This one is ignored.
+        return;
+      }
 
-    reporter({ rule, identifier, message });
+      reporter({ rule, identifier, message });
 
-    if (suggestedMigration) {
-      suggestedMigrations.push(suggestedMigration);
-    }
-    anyIssues = true;
-  };
+      if (suggestedMigration) {
+        suggestedMigrations.push(suggestedMigration);
+      }
+      anyIssues = true;
+    };
 
 export async function processDatabase({
   connection,
@@ -46,8 +46,7 @@ export async function processDatabase({
   const registeredRules = indexBy(prop("name"), values(allRules));
 
   console.info(
-    `Connecting to ${chalk.greenBright(connection.database)} on ${
-      connection.host
+    `Connecting to ${chalk.greenBright(connection.database)} on ${connection.host
     }`,
   );
 

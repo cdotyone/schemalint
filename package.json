@@ -1,5 +1,5 @@
 {
-  "name": "schemalint",
+  "name": "schemalint-mysql",
   "version": "1.0.4",
   "keywords": [
     "postgresql",
@@ -8,7 +8,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:kristiandupont/schemalint.git"
+    "url": "git@github.com:cdotyone/schemalint.git"
   },
   "homepage": "https://github.com/kristiandupont/schemalint",
   "license": "MIT",
@@ -28,7 +28,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint . -f visualstudio --report-unused-disable-directives --ext .js,.ts",
-    "run-example": "node build/cli -c ./example/.schemalintrc",
+    "run-example": "node build/cli -c ./example2/.schemalintrc",
     "start-example-db": "docker run -d --name dvd-rental -p 54321:5432 kristiandupont/dvdrental-image",
     "stop-example-db": "docker stop dvd-rental",
     "test": "vitest run",
@@ -37,6 +37,7 @@
   "dependencies": {
     "@kristiandupont/recase": "^1.2.1",
     "chalk": "4.1.2",
+    "extract-mysql-schema": "^0.0.1",
     "extract-pg-schema": "^4.2.4",
     "irregular-plurals": "^3.2.0",
     "optionator": "^0.9.1",
