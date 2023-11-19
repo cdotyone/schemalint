@@ -1,6 +1,6 @@
 {
   "name": "schemalint-mysql",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "keywords": [
     "postgresql",
     "schema",
@@ -20,6 +20,9 @@
   "types": "build/engine.d.ts",
   "bin": {
     "schemalint": "./bin/schemalint"
+  },
+  "publishConfig": {
+    "registry": "https://pkgs.dev.azure.com/ingramcontentgroup/LitServices/_packaging/iswnpm/npm/registry/"
   },
   "files": [
     "build/",
@@ -43,7 +46,7 @@
     "ramda": "^0.29.0"
   },
   "devDependencies": {
-    "extract-mysql-schema": "^0.0.6",
+    "extract-mysql-schema": "^0.0.10",
     "extract-pg-schema": "^4.2.4",
     "@kristiandupont/dev-deps": "^2.11.0",
     "@types/ramda": "0.29.8",
