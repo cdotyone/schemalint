@@ -83,6 +83,8 @@ export async function processDatabase({
   const report = createReportFunction(consoleReporter, ignoreMatchers);
   const extractedSchemas = await extractSchemas(connection, {
     schemas: schemas.map((s) => s.name),
+    tableISV: true,
+    columnISV: true
   });
 
   for (const schema of schemas) {
